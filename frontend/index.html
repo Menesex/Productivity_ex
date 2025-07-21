@@ -1,13 +1,107 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8" />
-    <title>Mini sistema de tareas</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Mini Trello</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 1rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        #board {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding: 1rem;
+        }
+
+        .list {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            width: 250px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .list h2 {
+            font-size: 1.2rem;
+            margin-top: 0;
+        }
+
+        .task {
+            background: #e0e7ff;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .task small {
+            display: none;
+            font-size: 0.8rem;
+            color: #333;
+        }
+
+        .task.expanded small {
+            display: block;
+            margin-top: 0.3rem;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 0.5rem;
+            padding: 0.4rem 1rem;
+            border: none;
+            background: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        #new-list {
+            padding: 1rem;
+            text-align: center;
+            background: #fff;
+            margin-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Mis tareas</h1>
-    <ul id="taskList"></ul>
+    <h1>Mini Trello</h1>
+
+    <div id="board"></div>
+
+    <div id="new-list">
+        <input type="text" id="list-name" placeholder="Nombre de la lista">
+        <button onclick="addList()">Agregar lista</button>
+    </div>
+
     <script src="app.js"></script>
 </body>
+
 </html>
